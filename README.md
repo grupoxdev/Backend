@@ -16,3 +16,6 @@ Los siguientes comandos deben ser ejecutados dentro de la carpeta del proyecto.
 * **`bundle install`**: Instala las dependencias especificadas en el Gemfile. Se debe correr este comando siempre que se añade una nueva gema al *Gemfile*, tambien cuando se hace `git clone` y `git pull`.
 * **`rails s -p 4200`**: Corre el servidor local. el flag *`-p`* permite especificar el puerto en el que se va a correr el servidor, en este caso se utiliza el puerto `4200` ya que la aplicacion de React utiliza por defecto el puerto `3000`. Abrir [http://localhost:4200](http://localhost:4200) para ver en el navegador.
   >Nota: Se recomienda usar el navegador de Firefox debido a que muestra de mejor manera las respuestas de peticiones en formato json
+
+## Tutoriales
+* [Videos de ruby on Rails](https://drive.google.com/drive/folders/142-C7EJwuQdSCUuxz6RZ9rN-MHPNdJDt?usp=sharing)
