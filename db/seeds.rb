@@ -13,7 +13,7 @@ index = 1
         direccion: Faker::Address.full_address,
         departamento: "Cundinamarca",
         ciudad: "Bogota",
-        telefono: Faker::Number.unique.number(7)
+        telefono: Faker::PhoneNumber.cell_phone
     )
     index = index + 1
 end
@@ -28,11 +28,11 @@ p "Se crearon #{District.count} distritos militares"
         correo: Faker::Internet.free_email(name),
         password: Faker::Internet.password(10, 15),
         tipoDocumento: Faker::Number.between(0, 2),
-        documento: Faker::Number.unique.between(9, 15),
+        documento: Faker::Number.between(9, 15),
         fechaNacimiento: Faker::Date.birthday(16, 25),
         departamento: "Cundinamarca",
         ciudad: "Bogota",
-        telefono: Faker::Number.unique.number(7),
+        telefono: Faker::PhoneNumber.cell_phone,
         estadoProceso: Faker::Number.between(0, 2),
         estadoCivil: Faker::Number.between(0, 2),
         rh: "0+",
@@ -51,12 +51,13 @@ index = 1
         correo: Faker::Internet.free_email(name),
         password: Faker::Internet.password(10, 15),
         tipoDocumento: Faker::Number.between(0, 2),
-        documento: Faker::Number.unique.between(9, 15),
+        documento: Faker::Number.between(9, 15),
         district_id: index
     )
     index = index + 1
 end
 100.times do
+    name = Faker::Name.male_first_name
     Admin.create(
         nombre: name,
         primerApellido: Faker::Name.last_name,
@@ -64,7 +65,7 @@ end
         correo: Faker::Internet.free_email(name),
         password: Faker::Internet.password(10, 15),
         tipoDocumento: Faker::Number.between(0, 2),
-        documento: Faker::Number.unique.between(9, 15),
+        documento: Faker::Number.between(9, 15),
         district_id: Faker::Number.between(1, 53)
     )
 end
@@ -76,7 +77,7 @@ usuario = 1
     veces = Faker::Number.between(0, 5)
     veces.times do
         Document.create(
-            nombre: "documento" +documento.to_s,
+            nombre: "documento" + documento.to_s,
             archivo: Faker::Alphanumeric.alphanumeric(Faker::Number.between(6, 16)),
             user_id: usuario
         )
@@ -93,7 +94,7 @@ usuario = 1
         direccion: Faker::Address.full_address,
         departamento: "Cundinamarca",
         ciudad: "Bogota",
-        telefono: Faker::Number.unique.number(7),
+        telefono: Faker::PhoneNumber.cell_phone,
         user_id: usuario
     )
 end
