@@ -37,13 +37,12 @@ class DistrictsController < ApplicationController
             render json: @district, include: []
         else
             render json: @district.errors
-        end  
-        redirect_to districts_path
+        end
     end
 
     private
         def district_params
-            params.require(:district).permit(:nombre, :direccion, :departamento, :ciudad, :telefono)
+            params.require(:district).permit(:nombre, :direccion, :departamento, :ciudad, :telefono, :latitud, :longitud)
         end
     
         def set_district

@@ -15,6 +15,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer :estadoProceso
       t.integer :estadoCivil
       t.string :rh
+      t.integer :tipoUsuario
       
       t.timestamps
     end

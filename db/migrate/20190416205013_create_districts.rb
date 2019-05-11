@@ -6,6 +6,8 @@ class CreateDistricts < ActiveRecord::Migration[5.2]
       t.string :departamento
       t.string :ciudad
       t.string :telefono
+      t.float :latitud
+      t.float :longitud
 
       t.timestamps
     end
