@@ -8,11 +8,12 @@
 #  departamento :string
 #  ciudad       :string
 #  telefono     :string
+#  latitud      :float
+#  longitud     :float
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
 
 class District < ApplicationRecord
-    has_many :admins
     has_many :users
 end

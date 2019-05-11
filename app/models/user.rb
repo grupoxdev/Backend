@@ -17,6 +17,7 @@
 #  estadoProceso   :integer
 #  estadoCivil     :integer
 #  rh              :string
+#  tipoUsuario     :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  district_id     :integer

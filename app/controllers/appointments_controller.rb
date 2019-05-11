@@ -37,13 +37,12 @@ class AppointmentsController < ApplicationController
             render json: @appointment, include: []
         else
             render json: @appointment.errors
-        end  
-        redirect_to appointments_path
+        end
     end
 
     private
         def appointment_params
-            params.require(:appointment).permit(:nombre, :direccion, :departamento, :ciudad, :telefono)
+            params.require(:appointment).permit(:fecha, :nombre)
         end
     
         def set_appointment

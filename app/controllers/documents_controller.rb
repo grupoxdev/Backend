@@ -37,8 +37,7 @@ class DocumentsController < ApplicationController
             render json: @document, include: []
         else
             render json: @document.errors
-        end  
-        redirect_to documents_path
+        end
     end
 
     private
