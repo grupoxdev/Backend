@@ -12,26 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_04_16_205401) do
 
-  create_table "admins", force: :cascade do |t|
-    t.string "nombre"
-    t.string "primerApellido"
-    t.string "segundoApellido"
-    t.string "correo"
-    t.string "password"
-    t.integer "tipoDocumento"
-    t.string "documento"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "district_id"
-    t.index ["district_id"], name: "index_admins_on_district_id"
-  end
-
   create_table "appointments", force: :cascade do |t|
+    t.date "fecha"
     t.string "nombre"
-    t.string "direccion"
-    t.string "departamento"
-    t.string "ciudad"
-    t.string "telefono"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -44,6 +27,8 @@ ActiveRecord::Schema.define(version: 2019_04_16_205401) do
     t.string "departamento"
     t.string "ciudad"
     t.string "telefono"
+    t.float "latitud"
+    t.float "longitud"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -72,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_04_16_205401) do
     t.integer "estadoProceso"
     t.integer "estadoCivil"
     t.string "rh"
+    t.integer "tipoUsuario"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "district_id"
