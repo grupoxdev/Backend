@@ -16,4 +16,15 @@
 
 class District < ApplicationRecord
     has_many :users
+
+    validates :nombre, :direccion, :departamento, :ciudad, :telefono, :latitud, :longitud, presence:true
+    validates :nombre, length:{maximum:50}
+    validates :direccion, length:{maximum:100}
+    validates :departamento, length:{maximum:50}
+    validates :ciudad, length:{maximum:50}
+    validates :telefono, numericality:true
+    validates :longitud, numericality:{only_float:true}
+    validates :latitud, numericality: {only_float:true}
+
+
 end
