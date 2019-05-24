@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
   before_action :set_user, only: [:show, :update, :destroy]
   
-  # */users
+   #*/users
   def index
     @users = User.all
     render json: @users, include: []
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       render json: @user, include: []
     end
   end
-
+  
   def create
     @user = User.new(user_params)
     if @user.save

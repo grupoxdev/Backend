@@ -28,3 +28,7 @@ class User < ApplicationRecord
     has_many :appointments
     belongs_to :district
 end
+
+def show
+    @users = User.paginate(:page => params[:page], :per_page => 5)
+end
