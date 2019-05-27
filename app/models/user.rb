@@ -36,6 +36,7 @@ class User < ApplicationRecord
     validates :documento, uniqueness: { message: "Este documento ya ha sido resgistrado"}
 
     has_many :documents
-    has_many :appointments
+    has_many :user_appointments
+    has_many :appointments, through: user_appointments
     belongs_to :district
 end
