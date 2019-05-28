@@ -10,25 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_27_022722) do
+ActiveRecord::Schema.define(version: 2019_05_28_065822) do
 
   create_table "appointments", force: :cascade do |t|
     t.date "fecha"
     t.string "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
   create_table "districts", force: :cascade do |t|
-    t.string "nombre"
-    t.string "direccion"
-    t.string "departamento"
-    t.string "ciudad"
-    t.string "telefono"
-    t.float "latitud"
-    t.float "longitud"
+    t.string "nombre", limit: 80, null: false
+    t.string "direccion", limit: 100, null: false
+    t.string "departamento", limit: 56, null: false
+    t.string "ciudad", limit: 85, null: false
+    t.string "telefono", limit: 20, null: false
+    t.float "latitud", null: false
+    t.float "longitud", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,24 +43,28 @@ ActiveRecord::Schema.define(version: 2019_05_27_022722) do
   create_table "user_appointments", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "appointment_id"
+    t.index ["appointment_id"], name: "index_user_appointments_on_appointment_id"
+    t.index ["user_id"], name: "index_user_appointments_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "nombre"
-    t.string "primerApellido"
-    t.string "segundoApellido"
-    t.string "correo"
-    t.string "password"
-    t.integer "tipoDocumento"
-    t.string "documento"
+    t.string "nombre", limit: 100, null: false
+    t.string "primerApellido", limit: 100, null: false
+    t.string "segundoApellido", limit: 100, null: false
+    t.string "correo", null: false
+    t.string "password", null: false
+    t.integer "tipoDocumento", null: false
+    t.string "documento", null: false
     t.date "fechaNacimiento"
-    t.string "departamento"
-    t.string "ciudad"
-    t.string "telefono"
+    t.string "departamento", limit: 56, null: false
+    t.string "ciudad", limit: 85, null: false
+    t.string "telefono", limit: 20, null: false
     t.integer "estadoProceso"
     t.integer "estadoCivil"
     t.string "rh"
-    t.integer "tipoUsuario"
+    t.integer "tipoUsuario", limit: 100, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "district_id"
