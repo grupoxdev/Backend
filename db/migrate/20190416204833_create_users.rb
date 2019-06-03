@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :nombre, limit: 100, null: false
       t.string :primerApellido, limit: 100, null: false
       t.string :segundoApellido, limit: 100, null: false
-      t.string :correo, null: false
+      t.string :email, null: false
       t.string :password_digest, null: false
       t.integer :tipoDocumento, null: false
       t.string :documento, null: false
