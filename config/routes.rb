@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   post 'user_token' => 'user_token#create'
-  root 'home#index'
   resources :users
   resources :documents
   resources :districts
