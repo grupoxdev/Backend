@@ -7,7 +7,7 @@
 #  primerApellido  :string(100)      not null
 #  segundoApellido :string(100)      not null
 #  correo          :string           not null
-#  password        :string           not null
+#  password_digest :string           not null
 #  tipoDocumento   :integer          not null
 #  documento       :string           not null
 #  fechaNacimiento :date
@@ -24,6 +24,8 @@
 #
 
 class User < ApplicationRecord
+    has_secure_password
+
     validates :nombre, :primerApellido, :segundoApellido, :telefono, :password, 
               :correo, :tipoDocumento, :documento, :tipoUsuario, :ciudad, :departamento, presence: true
     validates :nombre, :primerApellido, :segundoApellido, length: { maximum: 100, too_long:"Pueden haber unicamente %´{count} caracteres" }
@@ -40,4 +42,10 @@ class User < ApplicationRecord
     has_many :user_appointments
     has_many :appointments, through: :user_appointments
     belongs_to :district
+
+    def User.digest(string)
+        cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                      BCrypt::Engine.cost
+        BCrypt::Password.create(string, cost: cost)
+    end
 end
