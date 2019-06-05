@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   post 'user_token' => 'user_token#create'
-  resources :users
+
+  resources :users do
+    collection do
+      get "current" => "users#current"
+    end
+  end
+  
   resources :documents
   resources :districts
   resources :appointments

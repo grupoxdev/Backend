@@ -43,6 +43,12 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def current
+    respond_to do |format|
+        format.json { render json: current_user, status:200 } 
+    end
+  end
+
   private
     def user_params
       params.require(:user).permit(:nombre, :primerApellido, :segundoApellido, :email, :password, :documento, :fechaNacimiento, :departamento, :ciudad, :telefono, :estadoCivil, :rh, :tipoUsuario)

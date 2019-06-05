@@ -21,7 +21,7 @@ index = 1
 end
 p "Se crearon #{District.count} distritos militares"
 
-until User.count == 1000 do
+until User.count == 300 do
     name = Faker::Name.male_first_name
     pass = Faker::Internet.password(8, 15)
     User.create(
