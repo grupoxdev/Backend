@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 2019_05_28_065822) do
     t.string "nombre", limit: 100, null: false
     t.string "primerApellido", limit: 100, null: false
     t.string "segundoApellido", limit: 100, null: false
-    t.string "correo", null: false
-    t.string "password", null: false
+    t.string "email", null: false
+    t.string "password_digest", null: false
     t.integer "tipoDocumento", null: false
     t.string "documento", null: false
     t.date "fechaNacimiento"

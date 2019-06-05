@@ -21,14 +21,16 @@ index = 1
 end
 p "Se crearon #{District.count} distritos militares"
 
-until User.count == 1000 do
+until User.count == 300 do
     name = Faker::Name.male_first_name
+    pass = Faker::Internet.password(8, 15)
     User.create(
         nombre: name,
         primerApellido: Faker::Name.last_name,
         segundoApellido: Faker::Name.last_name,
-        correo: Faker::Internet.free_email(name + Faker::Number.between(10,200).to_s),
-        password: Faker::Internet.password(8, 15),
+        email: Faker::Internet.free_email(name + Faker::Number.between(10,200).to_s),
+        password: pass,
+        password_confirmation: pass,
         tipoDocumento: Faker::Number.between(0, 2),
         documento: Faker::Number.between(900000000, 1500000000000),
         fechaNacimiento: Faker::Date.birthday(16, 25),
@@ -47,8 +49,9 @@ User.create(
 	nombre: 'John',
     primerApellido: 'Doe',
     segundoApellido: 'Doe',
-    correo: 'user@test.com',
+    email: 'user@test.com',
     password: 'password',
+    password_confirmation: 'password',
     tipoDocumento: Faker::Number.between(0, 2),
     documento: 123456789,
     fechaNacimiento: Faker::Date.birthday(16, 25),
@@ -67,12 +70,14 @@ users = User.count
 index = 1
 District.count.times do
     name = Faker::Name.male_first_name
+    pass = Faker::Internet.password(8, 15)
     User.create(
         nombre: name,
         primerApellido: Faker::Name.last_name,
         segundoApellido: Faker::Name.last_name,
-        correo: Faker::Internet.free_email(name + Faker::Number.between(10,200).to_s),
-        password: Faker::Internet.password(10, 15),
+        email: Faker::Internet.free_email(name + Faker::Number.between(10,200).to_s),
+        password: pass,
+        password_confirmation: pass,
         tipoDocumento: Faker::Number.between(0, 2),
         documento: Faker::Number.between(900000000, 1500000000000),
         fechaNacimiento: Faker::Date.birthday(18, 50),
@@ -89,12 +94,14 @@ District.count.times do
 end
 100.times do
     name = Faker::Name.male_first_name
+    pass = Faker::Internet.password(8, 15)
     User.create(
         nombre: name,
         primerApellido: Faker::Name.last_name,
         segundoApellido: Faker::Name.last_name,
-        correo: Faker::Internet.free_email(name + Faker::Number.between(10,200).to_s),
-        password: Faker::Internet.password(10, 15),
+        email: Faker::Internet.free_email(name + Faker::Number.between(10,200).to_s),
+        password: pass,
+        password_confirmation: pass,
         tipoDocumento: Faker::Number.between(0, 2),
         documento: Faker::Number.between(900000000, 1500000000000),
         fechaNacimiento: Faker::Date.birthday(18, 50),
@@ -113,8 +120,9 @@ User.create(
 	nombre: 'Admin',
     primerApellido: 'Admin',
     segundoApellido: 'Admin',
-    correo: 'admin@test.com',
+    email: 'admin@test.com',
     password: 'password',
+    password_confirmation: 'password',
     tipoDocumento: Faker::Number.between(0, 2),
     documento: 98765432,
     fechaNacimiento: Faker::Date.birthday(18, 50),
@@ -124,7 +132,7 @@ User.create(
     estadoProceso: Faker::Number.between(0, 2),
     estadoCivil: Faker::Number.between(0, 2),
     rh: "0+",
-    tipoUsuario: 0,
+    tipoUsuario: 1,
     district_id: Faker::Number.between(1, District.count)
 )
 p "Se crearon #{User.count-users} administradores"
