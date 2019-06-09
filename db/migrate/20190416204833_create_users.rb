@@ -1,21 +1,21 @@
 class CreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
-      t.string :nombre
-      t.string :primerApellido
-      t.string :segundoApellido
-      t.string :correo
-      t.string :password
-      t.integer :tipoDocumento
-      t.string :documento
+      t.string :nombre, limit: 100, null: false
+      t.string :primerApellido, limit: 100, null: false
+      t.string :segundoApellido, limit: 100, null: false
+      t.string :email, null: false
+      t.string :password_digest, null: false
+      t.integer :tipoDocumento, null: false
+      t.string :documento, null: false
       t.date :fechaNacimiento
-      t.string :departamento
-      t.string :ciudad
-      t.string :telefono
+      t.string :departamento, limit: 56, null: false
+      t.string :ciudad, limit: 85, null: false
+      t.string :telefono, limit: 20, null: false
       t.integer :estadoProceso
       t.integer :estadoCivil
       t.string :rh
-      t.integer :tipoUsuario
+      t.integer :tipoUsuario, limit: 100, null: false
       
       t.timestamps
     end

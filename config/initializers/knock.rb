@@ -8,8 +8,7 @@ Knock.setup do |config|
   ##
   ## Default:
   config.token_lifetime = 1.day
-
-
+  
   ## Audience claim
   ## --------------
   ##
@@ -29,6 +28,7 @@ Knock.setup do |config|
   ##
   ## Default:
   config.token_signature_algorithm = 'HS256'
+
 
   ## Signature key
   ## -------------
@@ -56,4 +56,5 @@ Knock.setup do |config|
   ##
   ## Default:
   config.not_found_exception_class_name = 'ActiveRecord::RecordNotFound'
+
 end
