@@ -37,7 +37,7 @@ class User < ApplicationRecord
     validates :email, uniqueness: { message: "Este correo ya ha sido registrado." }
     validates :email, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ } 
     validates :documento, uniqueness: { message: "Este documento ya ha sido resgistrado"}
-
+  
     has_many :documents
     has_many :user_appointments
     has_many :appointments, through: :user_appointments
