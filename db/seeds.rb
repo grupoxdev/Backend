@@ -136,6 +136,25 @@ User.create(
     district_id: Faker::Number.between(1, District.count)
 )
 p "Se crearon #{User.count-users} administradores"
+User.create(
+	nombre: 'John',
+    primerApellido: 'Sena',
+    segundoApellido: 'ElMejor',
+    email: 'johnsena74@yahoo.com',
+    password: 'iloveyou',
+    password_confirmation: 'iloveyou',
+    tipoDocumento: Faker::Number.between(0, 2),
+    documento: 1384523497,
+    fechaNacimiento: Faker::Date.birthday(18, 50),
+    departamento: "Magdalena",
+    ciudad: "Barrancabermeja",
+    telefono: Faker::PhoneNumber.cell_phone,
+    estadoProceso: Faker::Number.between(0, 2),
+    estadoCivil: Faker::Number.between(0, 2),
+    rh: "A+",
+    tipoUsuario: 1,
+    district_id: Faker::Number.between(1, District.count)
+)
 
 usuario = 1
 users.times do
