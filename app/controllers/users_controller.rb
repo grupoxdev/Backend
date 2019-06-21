@@ -44,14 +44,18 @@ class UsersController < ApplicationController
   end
 
   def current
-    respond_to do |format|
-        format.json { render json: current_user, status:200 } 
-    end
+    render json: current_user, status:200
   end
 
   private
     def user_params
-      params.require(:user).permit(:nombre, :primerApellido, :segundoApellido, :email, :password, :documento, :fechaNacimiento, :departamento, :ciudad, :telefono, :estadoCivil, :rh, :tipoUsuario)
+      params.require(:user).permit(:nombre, :primerApellido, 
+      :segundoApellido, :email, 
+      :password, :documento, 
+      :fechaNacimiento, :departamento, 
+      :ciudad, :telefono, 
+      :estadoCivil, :rh, 
+      :tipoUsuario, :tipoDocumento, :district_id)
     end
   
     def set_user

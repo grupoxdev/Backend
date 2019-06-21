@@ -9,9 +9,9 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer :tipoDocumento, null: false
       t.string :documento, null: false
       t.date :fechaNacimiento
-      t.string :departamento, limit: 56, null: false
-      t.string :ciudad, limit: 85, null: false
-      t.string :telefono, limit: 20, null: false
+      t.string :departamento, limit: 56
+      t.string :ciudad, limit: 85
+      t.string :telefono, limit: 20 
       t.integer :estadoProceso
       t.integer :estadoCivil
       t.string :rh

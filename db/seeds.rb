@@ -143,8 +143,7 @@ users.times do
     veces = Faker::Number.between(0, 5)
     veces.times do
         Document.create(
-            nombre: "documento" + documento.to_s,
-            archivo: Faker::Alphanumeric.alphanumeric(Faker::Number.between(6, 16)),
+            nombre: "documento " + documento.to_s,
             user_id: usuario
         )
         documento = documento + 1
