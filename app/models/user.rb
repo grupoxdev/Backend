@@ -26,6 +26,10 @@
 class User < ApplicationRecord
     has_secure_password
 
+    mount_uploader :avatar, AvatarUploader
+   
+    users = User.all
+
     validates :nombre, :primerApellido, :segundoApellido, :telefono, :password, 
               :email, :tipoDocumento, :documento, :tipoUsuario, :ciudad, :departamento, presence: true
     validates :nombre, :primerApellido, :segundoApellido, length: { maximum: 100, too_long:"Pueden haber unicamente %´{count} caracteres" }
