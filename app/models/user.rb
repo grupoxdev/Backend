@@ -11,9 +11,9 @@
 #  tipoDocumento   :integer          not null
 #  documento       :string           not null
 #  fechaNacimiento :date
-#  departamento    :string(56)       not null
-#  ciudad          :string(85)       not null
-#  telefono        :string(20)       not null
+#  departamento    :string(56)
+#  ciudad          :string(85)
+#  telefono        :string(20)
 #  estadoProceso   :integer
 #  estadoCivil     :integer
 #  rh              :string
@@ -39,7 +39,7 @@ class User < ApplicationRecord
     validates :ciudad, length: { maximum: 85, too_long: "Se permiten máximo %´{count} caracteres" }
     validates :password, length: { minimum: 8, too_short:"La contraseña debe tener minimo %´{count} caracteres" }
     validates :email, uniqueness: { message: "Este correo ya ha sido registrado." }
-    validates :email, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ } 
+    validates :email, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ }  
     validates :documento, uniqueness: { message: "Este documento ya ha sido resgistrado"}
   
     has_many :documents

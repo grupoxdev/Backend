@@ -44,9 +44,7 @@ class UsersController < ApplicationController
   end
 
   def current
-    respond_to do |format|
-        format.json { render json: current_user, status:200 } 
-    end
+    render json: current_user, status:200
   end
 
   private
