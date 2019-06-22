@@ -21,6 +21,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  district_id     :integer
+#  avatar          :string
 #
 
 class User < ApplicationRecord
@@ -31,7 +32,7 @@ class User < ApplicationRecord
     users = User.all
 
     validates :nombre, :primerApellido, :segundoApellido, :telefono, :password, 
-              :email, :tipoDocumento, :documento, :tipoUsuario, :ciudad, :departamento, presence: true
+              :email, :tipoDocumento, :documento, :tipoUsuario, presence: true
     validates :nombre, :primerApellido, :segundoApellido, length: { maximum: 100, too_long:"Pueden haber unicamente %´{count} caracteres" }
     validates :nombre, :primerApellido, :segundoApellido, :password, 
               :email, :tipoDocumento, :documento, :tipoUsuario, presence: true
