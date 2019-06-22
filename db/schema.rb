@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_065822) do
+ActiveRecord::Schema.define(version: 2019_06_21_135353) do
 
   create_table "appointments", force: :cascade do |t|
     t.date "fecha"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_05_28_065822) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "district_id"
+    t.string "avatar"
     t.index ["district_id"], name: "index_users_on_district_id"
   end
 
