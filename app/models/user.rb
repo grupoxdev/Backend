@@ -33,6 +33,8 @@ class User < ApplicationRecord
     validates :nombre, :primerApellido, :segundoApellido, :telefono, :password, 
               :email, :tipoDocumento, :documento, :tipoUsuario, :ciudad, :departamento, presence: true
     validates :nombre, :primerApellido, :segundoApellido, length: { maximum: 100, too_long:"Pueden haber unicamente %´{count} caracteres" }
+    validates :nombre, :primerApellido, :segundoApellido, :password, 
+              :email, :tipoDocumento, :documento, :tipoUsuario, presence: true
     validates :telefono, format: {with: /[0-9]/, message:"Solo se aceptan números"}
     validates :telefono, length: { maximum: 20, too_long: "Se permiten máximo %´{count} caracteres" }
     validates :departamento, length: { maximum: 56, too_long: "Se permiten máximo %´{count} caracteres" }
