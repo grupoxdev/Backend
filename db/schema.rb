@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_21_135353) do
+ActiveRecord::Schema.define(version: 2019_06_29_031921) do
 
   create_table "appointments", force: :cascade do |t|
     t.date "fecha"
@@ -38,6 +38,67 @@ ActiveRecord::Schema.define(version: 2019_06_21_135353) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_documents_on_user_id"
+  end
+
+  create_table "inscription_informations", force: :cascade do |t|
+    t.boolean "cursa_educacion_basica"
+    t.string "nivel_educacion_basica"
+    t.string "institucion_educacion_basica"
+    t.date "terminacion_educacion_basica"
+    t.boolean "cursa_educacion_superior"
+    t.string "nombre_carrera"
+    t.string "semestre_educacion_superior"
+    t.string "institucion_educacion_superior"
+    t.date "terminacion_educacion_superior"
+    t.boolean "esta_trabajando"
+    t.string "nombre_trabajo"
+    t.string "empresa_trabajo"
+    t.string "cargo_trabajo"
+    t.string "tipo_trabajador"
+    t.date "fecha_ingreso_trabajo"
+    t.string "direccion_trabajo"
+    t.string "pais_trabajo"
+    t.string "departamento_trabajo"
+    t.string "municipio_trabajo"
+    t.string "telefono_trabajo"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_inscription_informations_on_user_id"
+  end
+
+  create_table "relatives", force: :cascade do |t|
+    t.string "tipo_familiar"
+    t.string "tipo_documento_familiar"
+    t.string "documento_familiar"
+    t.string "primer_nombre_familiar"
+    t.string "segundo_nombre_familiar"
+    t.string "primer_apellido_familiar"
+    t.string "segundo_apellido_familiar"
+    t.date "fecha_nacimiento_familiar"
+    t.boolean "esta_vivo_familiar"
+    t.string "estado_civil_familiar"
+    t.boolean "tiene_cedula_militar_familiar"
+    t.string "direccion_familiar"
+    t.string "pais_familiar"
+    t.string "departamento_familiar"
+    t.string "municipio_familiar"
+    t.string "telefono_familiar"
+    t.boolean "esta_trabajando_familiar"
+    t.string "nombre_trabajo_familiar"
+    t.string "empresa_trabajo_familiar"
+    t.string "cargo_trabajo_familiar"
+    t.string "tipo_trabajador_familiar"
+    t.date "fecha_ingreso_trabajo_familiar"
+    t.string "direccion_trabajo_familiar"
+    t.string "pais_trabajo_familiar"
+    t.string "departamento_trabajo_familiar"
+    t.string "municipio_trabajo_familiar"
+    t.string "telefono_trabajo_familiar"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_relatives_on_user_id"
   end
 
   create_table "user_appointments", force: :cascade do |t|

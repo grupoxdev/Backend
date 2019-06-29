@@ -48,6 +48,8 @@ class User < ApplicationRecord
     has_many :documents
     has_many :user_appointments
     has_many :appointments, through: :user_appointments
+    has_one :inscription_information
+    has_many :relatives
     belongs_to :district
 
     def User.digest(string)

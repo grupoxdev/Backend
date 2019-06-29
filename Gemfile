@@ -2,7 +2,9 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
- 
+
+#nokogiri
+gem 'nokogiri', '~> 1.10.3'
 #carrierwave
 gem 'carrierwave', '~> 1.0'
 #Autenticacion
