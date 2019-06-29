@@ -53,7 +53,7 @@ class UsersController < ApplicationController
       :segundoApellido, :avatar, :email, 
       :password, :documento, 
       :fechaNacimiento, :departamento, 
-      :ciudad, :telefono, 
+      :ciudad, :estadoProceso,
       :estadoCivil, :rh, 
       :tipoUsuario, :tipoDocumento, :district_id)
     end
