@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_29_224136) do
+ActiveRecord::Schema.define(version: 2019_06_30_000701) do
 
   create_table "appointments", force: :cascade do |t|
     t.date "fecha"
@@ -154,10 +154,8 @@ ActiveRecord::Schema.define(version: 2019_06_29_224136) do
     t.date "fechaNacimiento"
     t.string "departamento", limit: 56
     t.string "ciudad", limit: 85
-    t.string "telefono", limit: 20
     t.integer "estadoProceso"
     t.integer "estadoCivil"
-    t.string "rh"
     t.integer "tipoUsuario", limit: 100, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -13,10 +13,8 @@
 #  fechaNacimiento :date
 #  departamento    :string(56)
 #  ciudad          :string(85)
-#  telefono        :string(20)
 #  estadoProceso   :integer
 #  estadoCivil     :integer
-#  rh              :string
 #  tipoUsuario     :integer          not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -31,13 +29,11 @@ class User < ApplicationRecord
    
     users = User.all
 
-    validates :nombre, :primerApellido, :segundoApellido, :telefono, :password, 
+    validates :nombre, :primerApellido, :segundoApellido, :password, 
               :email, :tipoDocumento, :documento, :tipoUsuario, presence: true
     validates :nombre, :primerApellido, :segundoApellido, length: { maximum: 100, too_long:"Pueden haber unicamente %´{count} caracteres" }
     validates :nombre, :primerApellido, :segundoApellido, :password, 
               :email, :tipoDocumento, :documento, :tipoUsuario, presence: true
-    validates :telefono, format: {with: /[0-9]/, message:"Solo se aceptan números"}
-    validates :telefono, length: { maximum: 20, too_long: "Se permiten máximo %´{count} caracteres" }
     validates :departamento, length: { maximum: 56, too_long: "Se permiten máximo %´{count} caracteres" }
     validates :ciudad, length: { maximum: 85, too_long: "Se permiten máximo %´{count} caracteres" }
     validates :password, length: { minimum: 8, too_short:"La contraseña debe tener minimo %´{count} caracteres" }

@@ -54,10 +54,16 @@ class UsersController < ApplicationController
       :password, :documento, 
       :fechaNacimiento, :departamento, 
       :ciudad, :estadoProceso,
-      :estadoCivil, :rh, 
       :tipoUsuario, :tipoDocumento, :district_id)
     end
-  
+
+    def user_params_update
+      params.require(:user).permit(
+        :correo,
+        :ciudad,
+        :departamento
+      )
+    end
     def set_user
       @user = User.find(params[:id])
     end  
