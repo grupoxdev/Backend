@@ -12,5 +12,8 @@ Rails.application.routes.draw do
   resources :documents
   resources :districts
   resources :appointments
+  resources :user_extra_info
+  resources :relative
+  resources :inscription_information
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
