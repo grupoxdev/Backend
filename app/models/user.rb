@@ -20,6 +20,7 @@
 #  updated_at      :datetime         not null
 #  district_id     :integer
 #  avatar          :string
+#  first_session   :boolean
 #
 
 class User < ApplicationRecord

@@ -1,4 +1,4 @@
-class ArticlesController < ApplicationController
+class UserExtraController < ApplicationController
             def index
                 extra = UserExtraInfo.order('created_at DESC');
                 render json: {status: 'SUCCESS', message:'Extra info Loaded', data: extra}, status: :ok
@@ -64,9 +64,8 @@ class ArticlesController < ApplicationController
                 :grupo_sanguineo,      
                 :factor_rh,            
                 :num_hijos,            
-                :estado_civil 
+                :estado_civil,
+                :user_id 
                     )
             end
-        end
-    end
 end
