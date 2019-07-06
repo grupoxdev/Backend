@@ -1,0 +1,59 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha_exp: 2019-06-29
+  pais_exp: MyString
+  dpto_exp: MyString
+  ciudad_exp: MyString
+  genero: 1
+  nacionalidad: MyString
+  doble_nacionalidad: MyString
+  boolean: MyString
+  retornado_de_exterior: false
+  excepciones_de_ley: 1
+  dependencia_economica: 1
+  pais_residencia: MyString
+  dpto_residencia: MyString
+  municipio_residencia: MyString
+  telefono_movil: MyString
+  tipo_vivienda: 1
+  estrato_vivienda: 1
+  pertenece_red_unidos: false
+  sisben: false
+  esta_cargo_icbf: false
+  estatura: 1
+  peso: 9.99
+  grupo_sanguineo: 1
+  factor_rh: 1
+  num_hijos: 1
+  estado_civil: 1
+  user: one
+
+two:
+  fecha_exp: 2019-06-29
+  pais_exp: MyString
+  dpto_exp: MyString
+  ciudad_exp: MyString
+  genero: 1
+  nacionalidad: MyString
+  doble_nacionalidad: MyString
+  boolean: MyString
+  retornado_de_exterior: false
+  excepciones_de_ley: 1
+  dependencia_economica: 1
+  pais_residencia: MyString
+  dpto_residencia: MyString
+  municipio_residencia: MyString
+  telefono_movil: MyString
+  tipo_vivienda: 1
+  estrato_vivienda: 1
+  pertenece_red_unidos: false
+  sisben: false
+  esta_cargo_icbf: false
+  estatura: 1
+  peso: 9.99
+  grupo_sanguineo: 1
+  factor_rh: 1
+  num_hijos: 1
+  estado_civil: 1
+  user: two
