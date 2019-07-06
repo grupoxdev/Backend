@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_30_000701) do
+ActiveRecord::Schema.define(version: 2019_07_06_033416) do
 
   create_table "appointments", force: :cascade do |t|
     t.date "fecha"
@@ -161,6 +161,7 @@ ActiveRecord::Schema.define(version: 2019_06_30_000701) do
     t.datetime "updated_at", null: false
     t.integer "district_id"
     t.string "avatar"
+    t.boolean "first_session"
     t.index ["district_id"], name: "index_users_on_district_id"
   end
 

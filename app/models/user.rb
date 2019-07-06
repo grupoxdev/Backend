@@ -20,6 +20,7 @@
 #  updated_at      :datetime         not null
 #  district_id     :integer
 #  avatar          :string
+#  first_session   :boolean
 #
 
 class User < ApplicationRecord
@@ -29,14 +30,11 @@ class User < ApplicationRecord
    
     users = User.all
 
-    validates :nombre, :primerApellido, :segundoApellido, :password, 
+    validates :nombre, :primerApellido, :segundoApellido, 
               :email, :tipoDocumento, :documento, :tipoUsuario, presence: true
     validates :nombre, :primerApellido, :segundoApellido, length: { maximum: 100, too_long:"Pueden haber unicamente %´{count} caracteres" }
-    validates :nombre, :primerApellido, :segundoApellido, :password, 
-              :email, :tipoDocumento, :documento, :tipoUsuario, presence: true
     validates :departamento, length: { maximum: 56, too_long: "Se permiten máximo %´{count} caracteres" }
     validates :ciudad, length: { maximum: 85, too_long: "Se permiten máximo %´{count} caracteres" }
-    validates :password, length: { minimum: 8, too_short:"La contraseña debe tener minimo %´{count} caracteres" }
     validates :email, uniqueness: { message: "Este correo ya ha sido registrado." }
     validates :email, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ }  
     validates :documento, uniqueness: { message: "Este documento ya ha sido resgistrado"}
