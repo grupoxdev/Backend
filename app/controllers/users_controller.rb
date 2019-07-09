@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user, except: [:create, :show, :index, :update]
+    before_action :authenticate_user, except: [:create, :show, :index, :update]
   before_action :set_user, only: [:show, :update, :destroy]
   
   # */users
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       render json: {status: 'SUCCESS', message: 'Actualizado', data: user}, status: :ok     
     else
-      render json: {status: 'ERROR', message: 'No Actualizado', data: user.errors}, status: :unprocessable_entity
+      render json: {status: 'ERROR', message: 'No Actualizado', data: user.errors}, status: :unprocessable_entity 
     end
   end
 
