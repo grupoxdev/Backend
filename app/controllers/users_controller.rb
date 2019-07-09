@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
+<<<<<<< HEAD
     before_action :authenticate_user, except: [:create, :show, :index, :update]
+=======
+  before_action :authenticate_user, except: [:create, :show, :update, :index]
+>>>>>>> b0c9c8ec5cd63f776f60c084d0a21ebe220481bb
   before_action :set_user, only: [:show, :update, :destroy]
   
   # */users
@@ -28,10 +32,11 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-    if @user.update_attributes(user_params)
-      render json: {status: 'SUCCESS', message: 'Actualizado', data: user}, status: :ok     
+    if user.update_attributes(user_params)
+      render json: {status: 'SUCCESS', message: 'Actualizado', data: user}, status: :ok
     else
-      render json: {status: 'ERROR', message: 'No Actualizado', data: user.errors}, status: :unprocessable_entity 
+      render json: {status: 'ERROR', message: 'No Actualizado', data: user.errors}, status: :unprocessable_entity
+    
     end
   end
 
@@ -54,11 +59,10 @@ class UsersController < ApplicationController
       :segundoApellido, :avatar, :email, 
       :password, :documento, 
       :fechaNacimiento, :departamento, 
-      :ciudad, :telefono, 
-      :estadoCivil, :rh, 
+      :ciudad, :estadoProceso, :first_session,
       :tipoUsuario, :tipoDocumento, :district_id)
     end
-  
+    
     def set_user
       @user = User.find(params[:id])
     end  

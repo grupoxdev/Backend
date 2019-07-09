@@ -21,7 +21,7 @@ index = 1
 end
 p "Se crearon #{District.count} distritos militares"
 
-until User.count == 300 do
+until User.count == 30 do
     name = Faker::Name.male_first_name
     pass = Faker::Internet.password(8, 15)
     User.create(
@@ -36,10 +36,7 @@ until User.count == 300 do
         fechaNacimiento: Faker::Date.birthday(16, 25),
         departamento: "Cundinamarca",
         ciudad: "Bogota",
-        telefono: Faker::PhoneNumber.cell_phone,
         estadoProceso: Faker::Number.between(0, 2),
-        estadoCivil: Faker::Number.between(0, 2),
-        rh: "0+",
         tipoUsuario: 0,
         district_id: Faker::Number.between(1, District.count)
     )
@@ -57,10 +54,7 @@ User.create(
     fechaNacimiento: Faker::Date.birthday(16, 25),
     departamento: "Cundinamarca",
     ciudad: "Bogota",
-    telefono: Faker::PhoneNumber.cell_phone,
     estadoProceso: Faker::Number.between(0, 2),
-    estadoCivil: Faker::Number.between(0, 2),
-    rh: "0+",
     tipoUsuario: 0,
     district_id: Faker::Number.between(1, District.count)
 )
@@ -83,16 +77,13 @@ District.count.times do
         fechaNacimiento: Faker::Date.birthday(18, 50),
         departamento: "Cundinamarca",
         ciudad: "Bogota",
-        telefono: Faker::PhoneNumber.cell_phone,
         estadoProceso: Faker::Number.between(0, 2),
-        estadoCivil: Faker::Number.between(0, 2),
-        rh: "0+",
         tipoUsuario: 1,
         district_id: index
     )
     index = index + 1
 end
-100.times do
+30.times do
     name = Faker::Name.male_first_name
     pass = Faker::Internet.password(8, 15)
     User.create(
@@ -107,10 +98,8 @@ end
         fechaNacimiento: Faker::Date.birthday(18, 50),
         departamento: "Cundinamarca",
         ciudad: "Bogota",
-        telefono: Faker::PhoneNumber.cell_phone,
         estadoProceso: Faker::Number.between(0, 2),
-        estadoCivil: Faker::Number.between(0, 2),
-        rh: "0+",
+
         tipoUsuario: 1,
         district_id: Faker::Number.between(1, District.count)
     )
@@ -128,10 +117,7 @@ User.create(
     fechaNacimiento: Faker::Date.birthday(18, 50),
     departamento: "Cundinamarca",
     ciudad: "Bogota",
-    telefono: Faker::PhoneNumber.cell_phone,
     estadoProceso: Faker::Number.between(0, 2),
-    estadoCivil: Faker::Number.between(0, 2),
-    rh: "0+",
     tipoUsuario: 1,
     district_id: Faker::Number.between(1, District.count)
 )
@@ -152,7 +138,7 @@ users.times do
 end
 p "Se crearon #{Document.count} documentos"
 
-200.times do
+30.times do
     Appointment.create(
         fecha: Faker::Date.forward(Faker::Number.between(90,180)),
         nombre: "Citacion"
