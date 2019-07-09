@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
-<<<<<<< HEAD
     before_action :authenticate_user, except: [:create, :show, :index, :update]
-=======
-  before_action :authenticate_user, except: [:create, :show, :update, :index]
->>>>>>> b0c9c8ec5cd63f776f60c084d0a21ebe220481bb
   before_action :set_user, only: [:show, :update, :destroy]
   
   # */users
