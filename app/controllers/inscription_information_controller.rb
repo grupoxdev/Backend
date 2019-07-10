@@ -13,7 +13,7 @@ class InscriptionInformationController < ApplicationController
       def create
           information =  InscriptionInformation.new(information_params)
           
-          if extra.save
+          if information.save
               render json: {status: 'SUCCESS', message:'Saved Info', data: information}, status: :ok
           else
               render json: {status: 'ERROR', message:'Info Not Saved', data: information.errors}, status: :unprocessable_entity
@@ -39,7 +39,7 @@ class InscriptionInformationController < ApplicationController
       private
 
       def information_params
-          :params.permit(
+          params.permit(
             :cursa_educacion_basica,
             :nivel_educacion_basica,
             :institucion_educacion_basica,
