@@ -39,7 +39,7 @@ class RelativeController < ApplicationController
     private
 
     def relative_params
-        :params.permit(
+        params.permit(
    :tipo_familiar,
    :tipo_documento_familiar,
    :documento_familiar,
