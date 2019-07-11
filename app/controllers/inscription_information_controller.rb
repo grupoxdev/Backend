@@ -30,7 +30,7 @@ class InscriptionInformationController < ApplicationController
       end
 
       def update
-          information = InscriptionInformation.find(params[:id])
+          information = InscriptionInformation.find_by(user_id: params[:user_id])
           if information.update_attributes(information_params)
               render json: {status: 'SUCCESS', message:'Updated Information', data: information}, status: :ok
           else
