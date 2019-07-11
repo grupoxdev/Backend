@@ -65,7 +65,9 @@ class UserExtraInfoController < ApplicationController
                 :factor_rh,            
                 :num_hijos,            
                 :estado_civil,
-                :user_id 
+                :user_id,
+                :tiene_hermano,
+                :direccion 
                     )
             end
 end
