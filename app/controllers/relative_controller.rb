@@ -5,7 +5,7 @@ class RelativeController < ApplicationController
     end
 
     def show
-        relative = Relative.find(params[:id])
+        relative = Relative.find_by(user_id: params[:user_id])
         render json: {status: 'SUCCESS', message:'Loaded relative Info', data: relative}, status: :ok
     end
     
