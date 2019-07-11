@@ -5,7 +5,7 @@ class UserExtraInfoController < ApplicationController
             end
 
             def show
-                extra = UserExtraInfo.find(params[:id])
+                extra = UserExtraInfo.find_by(user_id: params[:user_id])
                 render json: {status: 'SUCCESS', message:'Loaded Extra Info', data: extra}, status: :ok
             end
             

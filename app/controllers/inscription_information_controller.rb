@@ -1,14 +1,16 @@
 class InscriptionInformationController < ApplicationController
-      
+
       def index
           information = InscriptionInformation.order('created_at DESC');
           render json: {status: 'SUCCESS', message:'Info Loaded', data: information}, status: :ok
       end
 
       def show
-          information = InscriptionInformation.find(params[:id])
-          render json: {status: 'SUCCESS', message:'Loaded Info', data: information}, status: :ok
+        information = InscriptionInformation.find_by(user_id: params[:user_id])
+        render json: {status: 'SUCCESS', message:'Loaded relative Info', data: information}, status: :ok
+
       end
+
       
       def create
           information =  InscriptionInformation.new(information_params)
