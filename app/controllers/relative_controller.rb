@@ -27,7 +27,7 @@ class RelativeController < ApplicationController
     end
 
     def update
-        relative = Relative.find(params[:id])
+        relative = Relative.find_by(user_id: params[:user_id])
         if relative.update_attributes(relative_params)
             render json: {status: 'SUCCESS', message:'Updated relative Info', data: relative}, status: :ok
         else

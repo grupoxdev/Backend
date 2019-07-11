@@ -27,7 +27,7 @@ class UserExtraInfoController < ApplicationController
             end
 
             def update
-                extra = UserExtraInfo.find(params[:id])
+                extra = UserExtraInfo.find_by(user_id: params[:user_id])
                 if extra.update_attributes(extra_params)
                     render json: {status: 'SUCCESS', message:'Updated Extra Info', data: extra}, status: :ok
                 else
@@ -39,7 +39,7 @@ class UserExtraInfoController < ApplicationController
             private
 
             def extra_params
-                params.require(:infoextra).permit(
+                params.require(:params).permit(
                 :fecha_exp,
                 :pais_exp,            
                 :dpto_exp,            
