@@ -39,7 +39,7 @@ class InscriptionInformationController < ApplicationController
       private
 
       def information_params
-          params.permit(
+          params.require(:information).permit(
             :cursa_educacion_basica,
             :nivel_educacion_basica,
             :institucion_educacion_basica,
