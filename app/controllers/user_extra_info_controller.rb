@@ -39,7 +39,7 @@ class UserExtraInfoController < ApplicationController
             private
 
             def extra_params
-                params.permit(
+                params.require(:params).permit(
                 :fecha_exp,
                 :pais_exp,            
                 :dpto_exp,            
