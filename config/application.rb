@@ -23,7 +23,7 @@ module LibretaBack
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'http://localhost:3000'
+        origins 'http://3.220.58.90:3000'
         resource '*', headers: :any, methods: :any
       end
     end
