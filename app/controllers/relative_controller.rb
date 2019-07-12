@@ -4,8 +4,18 @@ class RelativeController < ApplicationController
         render json: {status: 'SUCCESS', message:'relative info Loaded', data: relative}, status: :ok
     end
 
+    def indexuserid
+        relative = Relative.where('user_id = ? ', params[:user_id]);
+        render json: {status: 'SUCCESS', message:'relative info Loaded', data: relative}, status: :ok
+    end
+    
     def show
         relative = Relative.find_by(user_id: params[:user_id])
+        render json: {status: 'SUCCESS', message:'Loaded relative Info', data: relative}, status: :ok
+    end
+
+    def showfamiliar
+        relative = Relative.where("user_id = ? AND tipo_familiar= ?", params[:user_id],params[:tipo_familiar])
         render json: {status: 'SUCCESS', message:'Loaded relative Info', data: relative}, status: :ok
     end
     
