@@ -26,7 +26,9 @@
 class User < ApplicationRecord
     has_secure_password
 
-    mount_uploader :avatar, AvatarUploader
+    #mount_base64_uploader :avatar, AvatarUploader
+    #attr_accessor :image_base
+    #has_one_attached :avatar
    
     users = User.all
 
