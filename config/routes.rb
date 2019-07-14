@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   
   post 'user_token' => 'user_token#create'
-  resources :users
+  resources :users          
 
   resources :documents
   resources :districts

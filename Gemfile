@@ -7,6 +7,7 @@ ruby '2.5.1'
 gem 'nokogiri', '~> 1.10.3'
 #carrierwave
 gem 'carrierwave', '~> 1.0'
+gem 'carrierwave-base64'
 #Autenticacion
 gem 'knock'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -23,12 +24,15 @@ gem 'puma', '~> 3.11'
 gem 'bcrypt', '~> 3.1.7'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
 gem 'rack-cors'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
+#MYME-types
+gem 'mime-types', require: 'mime/types/full'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
