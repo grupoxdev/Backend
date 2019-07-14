@@ -4,8 +4,18 @@ class RelativeController < ApplicationController
         render json: {status: 'SUCCESS', message:'relative info Loaded', data: relative}, status: :ok
     end
 
+    def indexuserid
+        relative = Relative.where('user_id = ? ', params[:user_id]);
+        render json: {status: 'SUCCESS', message:'relative info Loaded', data: relative}, status: :ok
+    end
+    
     def show
-        relative = Relative.find(params[:id])
+        relative = Relative.find_by(user_id: params[:user_id])
+        render json: {status: 'SUCCESS', message:'Loaded relative Info', data: relative}, status: :ok
+    end
+
+    def showfamiliar
+        relative = Relative.where("user_id = ? AND tipo_familiar= ?", params[:user_id],params[:tipo_familiar])
         render json: {status: 'SUCCESS', message:'Loaded relative Info', data: relative}, status: :ok
     end
     
@@ -27,7 +37,7 @@ class RelativeController < ApplicationController
     end
 
     def update
-        relative = Relative.find(params[:id])
+        relative = Relative.find_by(user_id: params[:user_id])
         if relative.update_attributes(relative_params)
             render json: {status: 'SUCCESS', message:'Updated relative Info', data: relative}, status: :ok
         else
@@ -39,7 +49,7 @@ class RelativeController < ApplicationController
     private
 
     def relative_params
-        :params.permit(
+        params.require(:relative).permit(
    :tipo_familiar,
    :tipo_documento_familiar,
    :documento_familiar,

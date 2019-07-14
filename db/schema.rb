@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 2019_07_14_002156) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+ActiveRecord::Schema.define(version: 2019_07_11_025456) do
+
+
   create_table "appointments", force: :cascade do |t|
     t.date "fecha"
     t.string "nombre"
@@ -161,6 +164,8 @@ ActiveRecord::Schema.define(version: 2019_07_14_002156) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "direccion"
+    t.boolean "tiene_hermano"
     t.index ["user_id"], name: "index_user_extra_infos_on_user_id"
   end
 

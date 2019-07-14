@@ -5,7 +5,7 @@ class UserExtraInfoController < ApplicationController
             end
 
             def show
-                extra = UserExtraInfo.find(params[:id])
+                extra = UserExtraInfo.find_by(user_id: params[:user_id])
                 render json: {status: 'SUCCESS', message:'Loaded Extra Info', data: extra}, status: :ok
             end
             
@@ -27,7 +27,7 @@ class UserExtraInfoController < ApplicationController
             end
 
             def update
-                extra = UserExtraInfo.find(params[:id])
+                extra = UserExtraInfo.find_by(user_id: params[:user_id])
                 if extra.update_attributes(extra_params)
                     render json: {status: 'SUCCESS', message:'Updated Extra Info', data: extra}, status: :ok
                 else
@@ -39,7 +39,7 @@ class UserExtraInfoController < ApplicationController
             private
 
             def extra_params
-                :params.permit(
+                params.require(:params).permit(
                 :fecha_exp,
                 :pais_exp,            
                 :dpto_exp,            
@@ -65,7 +65,9 @@ class UserExtraInfoController < ApplicationController
                 :factor_rh,            
                 :num_hijos,            
                 :estado_civil,
-                :user_id 
+                :user_id,
+                :tiene_hermano,
+                :direccion 
                     )
             end
 end

@@ -1,19 +1,21 @@
 class InscriptionInformationController < ApplicationController
-      
+
       def index
           information = InscriptionInformation.order('created_at DESC');
           render json: {status: 'SUCCESS', message:'Info Loaded', data: information}, status: :ok
       end
 
       def show
-          information = InscriptionInformation.find(params[:id])
-          render json: {status: 'SUCCESS', message:'Loaded Info', data: information}, status: :ok
+        information = InscriptionInformation.find_by(user_id: params[:user_id])
+        render json: {status: 'SUCCESS', message:'Loaded relative Info', data: information}, status: :ok
+
       end
+
       
       def create
           information =  InscriptionInformation.new(information_params)
           
-          if extra.save
+          if information.save
               render json: {status: 'SUCCESS', message:'Saved Info', data: information}, status: :ok
           else
               render json: {status: 'ERROR', message:'Info Not Saved', data: information.errors}, status: :unprocessable_entity
@@ -28,7 +30,7 @@ class InscriptionInformationController < ApplicationController
       end
 
       def update
-          information = InscriptionInformation.find(params[:id])
+          information = InscriptionInformation.find_by(user_id: params[:user_id])
           if information.update_attributes(information_params)
               render json: {status: 'SUCCESS', message:'Updated Information', data: information}, status: :ok
           else
@@ -39,7 +41,7 @@ class InscriptionInformationController < ApplicationController
       private
 
       def information_params
-          :params.permit(
+          params.require(:information).permit(
             :cursa_educacion_basica,
             :nivel_educacion_basica,
             :institucion_educacion_basica,
