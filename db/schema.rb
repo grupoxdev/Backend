@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_14_002156) do
+ActiveRecord::Schema.define(version: 2019_07_14_224106) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -32,9 +32,6 @@ ActiveRecord::Schema.define(version: 2019_07_14_002156) do
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
-
-ActiveRecord::Schema.define(version: 2019_07_11_025456) do
-
 
   create_table "appointments", force: :cascade do |t|
     t.date "fecha"
@@ -122,6 +119,7 @@ ActiveRecord::Schema.define(version: 2019_07_11_025456) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "documento_identidad"
     t.index ["user_id"], name: "index_relatives_on_user_id"
   end
 
@@ -166,6 +164,15 @@ ActiveRecord::Schema.define(version: 2019_07_11_025456) do
     t.datetime "updated_at", null: false
     t.string "direccion"
     t.boolean "tiene_hermano"
+    t.string "numero_ti"
+    t.string "pais_nacimiento"
+    t.string "telefono_fijo"
+    t.string "graduado"
+    t.string "modalidad"
+    t.string "registro_civil"
+    t.string "documento_identidad"
+    t.string "eduacion_basica"
+    t.string "educacion_superior"
     t.index ["user_id"], name: "index_user_extra_infos_on_user_id"
   end
 
@@ -188,6 +195,7 @@ ActiveRecord::Schema.define(version: 2019_07_11_025456) do
     t.integer "district_id"
     t.boolean "first_session"
     t.string "avatar"
+    t.text "comentario"
     t.index ["district_id"], name: "index_users_on_district_id"
   end
 
