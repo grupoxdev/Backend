@@ -19,8 +19,9 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  district_id     :integer
-#  avatar          :string
 #  first_session   :boolean
+#  avatar          :string
+#  comentario      :text
 #
 
 class User < ApplicationRecord

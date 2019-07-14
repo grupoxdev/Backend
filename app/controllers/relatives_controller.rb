@@ -1,4 +1,4 @@
-class RelativeController < ApplicationController
+class RelativesController < ApplicationController
     def index
         relative = Relative.order('created_at DESC');
         render json: {status: 'SUCCESS', message:'relative info Loaded', data: relative}, status: :ok
@@ -19,7 +19,7 @@ class RelativeController < ApplicationController
         render json: {status: 'SUCCESS', message:'Loaded relative Info', data: relative}, status: :ok
     end
     
-    def create
+    def mycreate
         relative =  Relative.new(relative_params)
         
         if relative.save
@@ -36,7 +36,7 @@ class RelativeController < ApplicationController
         render json: {status: 'SUCCESS', message:'Deleted relative Info', data: relative}, status: :ok
     end
 
-    def update
+    def myupdate
         relative = Relative.find_by(user_id: params[:user_id])
         if relative.update_attributes(relative_params)
             render json: {status: 'SUCCESS', message:'Updated relative Info', data: relative}, status: :ok
