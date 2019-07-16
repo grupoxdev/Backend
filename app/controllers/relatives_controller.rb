@@ -37,8 +37,9 @@ class RelativesController < ApplicationController
     end
 
     def myupdate
-        relative = Relative.find_by(params[:user_id], params[:tipo_familiar])
-        if relative.update_attributes(relative_params)
+        relative = Relative.where("user_id = ? AND tipo_familiar= ?", params[:user_id],params[:tipo_familiar])
+        #relative = Relative.find_by(params[:user_id], params[:tipo_familiar])
+        if relative.update(relative_params)
             render json: {status: 'SUCCESS', message:'Updated relative Info', data: relative}, status: :ok
         else
             render json: {status: 'ERROR', message:'Update Not Saved', data: relative.errors}, status: :unprocessable_entity
