@@ -1,15 +1,25 @@
-class RelativeController < ApplicationController
+class RelativesController < ApplicationController
     def index
         relative = Relative.order('created_at DESC');
         render json: {status: 'SUCCESS', message:'relative info Loaded', data: relative}, status: :ok
     end
 
+    def indexuserid
+        relative = Relative.where('user_id = ? ', params[:user_id]);
+        render json: {status: 'SUCCESS', message:'relative info Loaded', data: relative}, status: :ok
+    end
+    
     def show
-        relative = Relative.find(params[:id])
+        relative = Relative.find_by(user_id: params[:user_id])
+        render json: {status: 'SUCCESS', message:'Loaded relative Info', data: relative}, status: :ok
+    end
+
+    def showfamiliar
+        relative = Relative.where("user_id = ? AND tipo_familiar= ?", params[:user_id],params[:tipo_familiar])
         render json: {status: 'SUCCESS', message:'Loaded relative Info', data: relative}, status: :ok
     end
     
-    def create
+    def mycreate
         relative =  Relative.new(relative_params)
         
         if relative.save
@@ -26,9 +36,10 @@ class RelativeController < ApplicationController
         render json: {status: 'SUCCESS', message:'Deleted relative Info', data: relative}, status: :ok
     end
 
-    def update
-        relative = Relative.find(params[:id])
-        if relative.update_attributes(relative_params)
+    def myupdate
+        relative = Relative.where("user_id = ? AND tipo_familiar= ?", params[:user_id],params[:tipo_familiar])
+        #relative = Relative.find_by(params[:user_id], params[:tipo_familiar])
+        if relative.update(relative_params)
             render json: {status: 'SUCCESS', message:'Updated relative Info', data: relative}, status: :ok
         else
             render json: {status: 'ERROR', message:'Update Not Saved', data: relative.errors}, status: :unprocessable_entity
@@ -39,7 +50,7 @@ class RelativeController < ApplicationController
     private
 
     def relative_params
-        :params.permit(
+        params.require(:relative).permit(
    :tipo_familiar,
    :tipo_documento_familiar,
    :documento_familiar,
@@ -67,7 +78,8 @@ class RelativeController < ApplicationController
    :departamento_trabajo_familiar,
    :municipio_trabajo_familiar,
    :telefono_trabajo_familiar,
-   :user_id 
+   :user_id,
+   :documento_identidad 
             )
     end
 end

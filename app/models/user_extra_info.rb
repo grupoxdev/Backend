@@ -32,6 +32,17 @@
 #  user_id               :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
+#  direccion             :string
+#  tiene_hermano         :boolean
+#  numero_ti             :string
+#  pais_nacimiento       :string
+#  telefono_fijo         :string
+#  graduado              :string
+#  modalidad             :string
+#  registro_civil        :string
+#  documento_identidad   :string
+#  eduacion_basica       :string
+#  educacion_superior    :string
 #
 
 class UserExtraInfo < ApplicationRecord

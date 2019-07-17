@@ -1,11 +1,11 @@
-class UserExtraController < ApplicationController
+class UserExtraInfoController < ApplicationController
             def index
                 extra = UserExtraInfo.order('created_at DESC');
                 render json: {status: 'SUCCESS', message:'Extra info Loaded', data: extra}, status: :ok
             end
 
             def show
-                extra = UserExtraInfo.find(params[:id])
+                extra = UserExtraInfo.find_by(user_id: params[:user_id])
                 render json: {status: 'SUCCESS', message:'Loaded Extra Info', data: extra}, status: :ok
             end
             
@@ -27,7 +27,7 @@ class UserExtraController < ApplicationController
             end
 
             def update
-                extra = UserExtraInfo.find(params[:id])
+                extra = UserExtraInfo.find_by(user_id: params[:user_id])
                 if extra.update_attributes(extra_params)
                     render json: {status: 'SUCCESS', message:'Updated Extra Info', data: extra}, status: :ok
                 else
@@ -39,7 +39,7 @@ class UserExtraController < ApplicationController
             private
 
             def extra_params
-                :params.permit(
+                params.require(:params).permit(
                 :fecha_exp,
                 :pais_exp,            
                 :dpto_exp,            
@@ -65,7 +65,18 @@ class UserExtraController < ApplicationController
                 :factor_rh,            
                 :num_hijos,            
                 :estado_civil,
-                :user_id 
+                :user_id,
+                :tiene_hermano,
+                :direccion,
+                :numero_ti,
+                :pais_nacimiento,
+                :telefono_fijo,
+                :graduado,
+                :modalidad,
+                :registro_civil,
+                :documento_identidad,
+                :eduacion_basica,
+                :educacion_superior 
                     )
             end
 end
