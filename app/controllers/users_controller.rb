@@ -56,7 +56,7 @@ class UsersController < ApplicationController
       :password, :documento, 
       :fechaNacimiento, :departamento, 
       :ciudad, :estadoProceso, :first_session, :estadoCivil,
-      :tipoUsuario, :tipoDocumento, :district_id, :avatar)
+      :tipoUsuario, :tipoDocumento, :district_id, :avatar, :comentario)
     end
     
     def set_user
