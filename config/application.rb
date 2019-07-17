@@ -26,6 +26,10 @@ module LibretaBack
         origins 'http://localhost:3000'
         resource '*', headers: :any, methods: :any
       end
+      allow do
+        origins 'http://3.220.58.90:3000'
+        resource '*', headers: :any, methods: :any
+      end
     end
 
     config.load_defaults 5.2
