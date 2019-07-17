@@ -12,5 +12,6 @@
 
 class Document < ApplicationRecord
     belongs_to :user
-    mount_uploader :archivo
+    #mount_base64_uploader :archivo, DocumentUploader
+    has_many_attached :files
 end
