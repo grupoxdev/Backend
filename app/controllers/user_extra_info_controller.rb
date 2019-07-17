@@ -67,7 +67,16 @@ class UserExtraInfoController < ApplicationController
                 :estado_civil,
                 :user_id,
                 :tiene_hermano,
-                :direccion 
+                :direccion,
+                :numero_ti,
+                :pais_nacimiento,
+                :telefono_fijo,
+                :graduado,
+                :modalidad,
+                :registro_civil,
+                :documento_identidad,
+                :eduacion_basica,
+                :educacion_superior 
                     )
             end
 end
