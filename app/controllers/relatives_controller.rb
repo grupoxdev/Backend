@@ -78,7 +78,8 @@ class RelativesController < ApplicationController
    :departamento_trabajo_familiar,
    :municipio_trabajo_familiar,
    :telefono_trabajo_familiar,
-   :user_id 
+   :user_id,
+   :documento_identidad 
             )
     end
 end
